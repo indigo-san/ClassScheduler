@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClassScheduler.Pages.ClassesPage"
+             Title="ClassesPage">
+    
+    <ListView
+        IsPullToRefreshEnabled="True"
+        IsRefreshing="{Binding IsRefreshing.Value, Mode=OneWay}"
+        RefreshCommand="{Binding Refresh, Mode=OneTime}"
+        ItemsSource="{Binding Classes}" >
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout Orientation="Vertical">
+                    <Label class="SectionTitle" Text="{Binding Subject.Name}" />
+                </StackLayout>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    
+</ContentPage>

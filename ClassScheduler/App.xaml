@@ -1,0 +1,33 @@
+﻿<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:windows="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;assembly=Microsoft.Maui.Controls"
+             xmlns:local="clr-namespace:ClassScheduler"
+             xmlns:page="clr-namespace:ClassScheduler.Pages"
+             x:Class="ClassScheduler.App"
+             windows:Application.ImageDirectory="Assets">
+    <Application.Resources>
+        <ResourceDictionary Source="Resources/Styles/DefaultTheme.xaml"/>
+    </Application.Resources>
+    <Application.MainPage>
+        <Shell FlyoutBehavior="{OnIdiom Phone=Disabled, Default=Locked}">
+
+            <!-- Desktop/Tablet-->
+            <FlyoutItem Title="Home" Icon="tab_home.png">
+                <ShellContent ContentTemplate="{DataTemplate page:HomePage}"/>
+            </FlyoutItem>
+            <FlyoutItem Title="Classes" Icon="tab_calendar.png">
+                <ShellContent ContentTemplate="{DataTemplate page:ClassesPage}"/>
+            </FlyoutItem>
+
+            <!-- Phone -->
+            <TabBar x:Name="PhoneTabs">
+                <Tab Title="Home" Icon="tab_home.png">
+                    <ShellContent ContentTemplate="{DataTemplate page:HomePage}"/>
+                </Tab>
+                <Tab Title="Classes" Icon="tab_calendar.png">
+                    <ShellContent ContentTemplate="{DataTemplate page:ClassesPage}"/>
+                </Tab>
+            </TabBar>
+        </Shell>
+    </Application.MainPage>
+</Application>
